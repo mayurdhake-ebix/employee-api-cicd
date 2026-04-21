@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "mayurdhake/employee-api-cicd:latest"
-    }
+    DOCKER_IMAGE = "mayurdhake/employee-api-cicd:${BUILD_NUMBER}"
+}
 
     stages {
 
