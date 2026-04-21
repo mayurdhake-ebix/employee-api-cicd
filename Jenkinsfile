@@ -1,21 +1,16 @@
 pipeline {
     agent any
 
+    // ✅ ADD IT HERE
+    tools {
+        maven 'maven-3'
+    }
+
     environment {
         DOCKER_IMAGE = "mayurdhake/employee-api-cicd:%BUILD_NUMBER%"
     }
 
     stages {
-
-        // ❌ You can REMOVE this stage (Jenkins already does checkout)
-        // Keeping it is fine, but not needed
-        stage('Checkout Code') {
-            steps {
-                git branch: 'main',
-                    credentialsId: 'github-creds',
-                    url: 'https://github.com/mayurdhake-ebix/employee-api-cicd.git'
-            }
-        }
 
         stage('Build Application') {
             steps {
