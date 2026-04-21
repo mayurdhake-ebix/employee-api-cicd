@@ -9,7 +9,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git credentialsId: 'github-creds', url: 'https://github.com/mayurdhake-ebix/employee-api-cicd.git'
+                git branch: 'main', credentialsId: 'github-creds', url: 'https://github.com/mayurdhake-ebix/employee-api-cicd.git'
             }
         }
 
