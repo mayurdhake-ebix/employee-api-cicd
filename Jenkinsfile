@@ -1,9 +1,8 @@
 pipeline {
     agent any
 
-    // ✅ ADD IT HERE
     tools {
-        maven 'maven-3.9.9'
+        maven 'Maven-3.9.9'   // MUST match exactly what you configured in Jenkins
     }
 
     environment {
@@ -11,6 +10,17 @@ pipeline {
     }
 
     stages {
+
+        // ✅ Jenkins will already checkout automatically (Pipeline from SCM)
+        // But if you want explicit GitHub checkout, keep this:
+
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main',
+                    credentialsId: 'github-creds',
+                    url: 'https://github.com/mayurdhake-ebix/employee-api-cicd.git'
+            }
+        }
 
         stage('Build Application') {
             steps {
