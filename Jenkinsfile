@@ -6,8 +6,8 @@ pipeline {
     }
 
     environment {
-        DOCKER_IMAGE = "mayurdhake/employee-api-cicd:%BUILD_NUMBER%"
-    }
+    DOCKER_IMAGE = "mayurdhake/employee-api-cicd:${BUILD_NUMBER}"
+}
 
     stages {
 
