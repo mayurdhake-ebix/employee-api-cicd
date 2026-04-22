@@ -57,5 +57,5 @@ pipeline {
                 docker run -d -p 8181:8181 --name employee-container %DOCKER_IMAGE%
                 '''
             }
-    }
+    }	}
 }
