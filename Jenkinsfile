@@ -50,12 +50,14 @@ pipeline {
         }
         
         stage('Run Container') {
-            steps {
-                bat '''
-                docker stop employee-container || exit 0
-                docker rm employee-container || exit 0
-                docker run -d -p 8182:8181 --name employee-container %DOCKER_IMAGE%
-                '''
-            }
-    }	}
+    	steps {
+        	bat '''
+        	docker stop employee-container
+        	docker rm employee-container
+        	docker run -d -p 8181:8181 --name employee-container %DOCKER_IMAGE%
+        	docker ps -a
+        	'''
+    			}
+		}		
+	}
 }
