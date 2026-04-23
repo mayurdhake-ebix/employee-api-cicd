@@ -15,6 +15,8 @@ import com.ebix.employee_service.entity.Employee;
 import com.ebix.employee_service.service.EmployeeService;
 import com.ebix.employee_service.service.EmployeeServiceImpl;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/employees")
 public class EmployeeController {
@@ -36,12 +38,12 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public Employee create(@RequestBody Employee emp) {
+    public Employee create(@Valid @RequestBody Employee emp) {
         return service.create(emp);
     }
 
     @PutMapping("/{id}")
-    public Employee update(@PathVariable Long id, @RequestBody Employee emp) {
+    public Employee update(@PathVariable Long id, @Valid @RequestBody Employee emp) {
         return service.update(id, emp);
     }
 
